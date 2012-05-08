@@ -1,0 +1,8 @@
+
+# swap files
+*.*~
+*.*.swap
+
+# OS Directory File db
+.DS_Store
+thumb.db
