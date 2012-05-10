@@ -70,11 +70,15 @@ add_event = ( element, type, callback, capture ) ->
 
 # Styling page by User's Stylesheet Object ( like json )
 styling = ( stylesheet ) ->
+  dom = document.createElement 'style'
+  res = '\n'
   for selector, declarations of stylesheet
-    doms = document.querySelectorAll selector
+    res += "#{ selector } {\n"
     for property, value of declarations
-      for dom in doms
-        dom.style[ property ] = value
+      res += "  #{ property }: #{ value } !important;\n"
+    res += "}\n\n"
+  dom.innerHTML = res
+  document.getElementsByTagName('head')[0].appendChild dom
   return
 
 # Fix watch page
@@ -90,11 +94,10 @@ reserve = () ->
   run_fix = () ->
     conf = zero_fix.get_conf()
     unless is_empty conf
-      fix_page conf.stylesheet, conf.restructor
+      fix_page conf.stylesheet, conf.restruct
     return
   add_on_load () ->
     run_fix()
-    # setTimeout run_fix, 3000
     return
   return
 
