@@ -1,6 +1,6 @@
 # ZeroFixFramework
 # Module:    Example Fix
-# Version:   v0.3.0
+# Version:   v0.1.0
 # Copyright: VoQn
 # License:   MIT
 ###
@@ -17,13 +17,18 @@ zero_fix.set_conf
       opacity: '1'
     '#playerCommentPanelOuter':
       opacity: '0.3'
-      '-webkit-transition': 'opacity .5s linear'
     '#playerCommentPanelOuter > #videoInformation':
       background: '-webkit-linear-gradient(left,rgba(0,0,0,0.3),rgb(0,0,0)) no-repeat'
       color: 'white'
       'text-align': 'left'
+      padding: '5px'
+      height: '100%'
     '#playerCommentPanelOuter #videoThumbnailImage':
       display: 'none'
+    '#playerCommentPanelOuter #videoInfoHead .videoPostedAt':
+      'font-size': '8pt'
+    '#playerCommentPanelOuter #videoInfoHead .videoTitleText':
+      display: 'block'
     '#playerCommentPanelOuter #userProfile .userIcon':
       float: 'left'
       height: '43px'
@@ -33,16 +38,18 @@ zero_fix.set_conf
       'margin-right': '8px'
     '#playerCommentPanelOuter #userProfile .profile':
       float: 'left'
+      'padding-left': '10px'
     '#playerCommentPanelOuter #videoShareLinks':
       clear: 'both'
       'padding-top': '10px'
     '#playerCommentPanelOuter #videoStats li span':
       display: 'inline-block'
-      'padding-left': '10px'
       'font-weight': 'bold'
+      'padding-left': '10px'
     '.oldType':
       background: '#000'
       'border-radius': '5px'
+      'margin-top': '5px'
     '.oldType .commentInner':
       'box-shadow':
         'inset #666 0px 1px, inset #666 1px 0, inset #666 0 -1px'
@@ -69,6 +76,7 @@ zero_fix.set_conf
       info  = _info.cloneNode yes
       comment_view = $i 'playerCommentPanel'
       comment_view.parentNode.appendChild info, comment_view
+      _info.parentNode.removeChild _info
       return
     setTimeout lazy_fix, 3000
     return
