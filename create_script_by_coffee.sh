@@ -1,6 +1,6 @@
 #! /usr/bin/env sh
 APPNAME=MyZeroFix
-VERSION=0.3.0
+VERSION=0.1.0
 
 MSG_HEAD=${APPNAME}-${VERSION}:
 
